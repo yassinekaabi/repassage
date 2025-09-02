@@ -30,7 +30,6 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QLabel *label;
     QStackedWidget *stackedWidget;
     QWidget *page_3;
     QPushButton *pushButton_5;
@@ -46,11 +45,17 @@ public:
     QLineEdit *PRENOM;
     QLineEdit *MAIL;
     QLabel *label_6;
-    QLineEdit *SEXE;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QPushButton *pushButton_7;
+    QTableView *statsCl;
+    QLabel *label_12;
+    QPushButton *statbtnC_2;
+    QComboBox *SEXE;
+    QLineEdit *lineEdit;
+    QPushButton *triCLB;
+    QComboBox *triCL;
     QWidget *page_2;
     QTableView *tableView_2;
     QLabel *label_7;
@@ -67,6 +72,12 @@ public:
     QPushButton *pushButton_8;
     QComboBox *comboBox;
     QComboBox *STATUT;
+    QLabel *label_13;
+    QTableView *stats_commande;
+    QPushButton *statbtnC;
+    QLineEdit *lineEdit_2;
+    QPushButton *triCB;
+    QComboBox *triC;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -77,9 +88,6 @@ public:
         MainWindow->resize(1200, 776);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        label = new QLabel(centralwidget);
-        label->setObjectName("label");
-        label->setGeometry(QRect(2, 29, 1161, 681));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
         stackedWidget->setGeometry(QRect(0, 10, 1151, 701));
@@ -124,9 +132,6 @@ public:
         label_6 = new QLabel(page);
         label_6->setObjectName("label_6");
         label_6->setGeometry(QRect(70, 340, 121, 20));
-        SEXE = new QLineEdit(page);
-        SEXE->setObjectName("SEXE");
-        SEXE->setGeometry(QRect(210, 330, 113, 26));
         pushButton = new QPushButton(page);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(180, 390, 93, 29));
@@ -139,6 +144,35 @@ public:
         pushButton_7 = new QPushButton(page);
         pushButton_7->setObjectName("pushButton_7");
         pushButton_7->setGeometry(QRect(1010, 30, 93, 29));
+        statsCl = new QTableView(page);
+        statsCl->setObjectName("statsCl");
+        statsCl->setGeometry(QRect(710, 170, 341, 201));
+        label_12 = new QLabel(page);
+        label_12->setObjectName("label_12");
+        label_12->setGeometry(QRect(420, 30, 251, 31));
+        QFont font;
+        font.setPointSize(16);
+        label_12->setFont(font);
+        statbtnC_2 = new QPushButton(page);
+        statbtnC_2->setObjectName("statbtnC_2");
+        statbtnC_2->setGeometry(QRect(970, 140, 93, 29));
+        SEXE = new QComboBox(page);
+        SEXE->addItem(QString());
+        SEXE->addItem(QString());
+        SEXE->addItem(QString());
+        SEXE->setObjectName("SEXE");
+        SEXE->setGeometry(QRect(210, 340, 111, 26));
+        lineEdit = new QLineEdit(page);
+        lineEdit->setObjectName("lineEdit");
+        lineEdit->setGeometry(QRect(580, 400, 231, 31));
+        triCLB = new QPushButton(page);
+        triCLB->setObjectName("triCLB");
+        triCLB->setGeometry(QRect(860, 400, 93, 29));
+        triCL = new QComboBox(page);
+        triCL->addItem(QString());
+        triCL->addItem(QString());
+        triCL->setObjectName("triCL");
+        triCL->setGeometry(QRect(980, 400, 121, 26));
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
@@ -190,6 +224,27 @@ public:
         STATUT->addItem(QString());
         STATUT->setObjectName("STATUT");
         STATUT->setGeometry(QRect(220, 150, 111, 26));
+        label_13 = new QLabel(page_2);
+        label_13->setObjectName("label_13");
+        label_13->setGeometry(QRect(440, 0, 301, 31));
+        label_13->setFont(font);
+        stats_commande = new QTableView(page_2);
+        stats_commande->setObjectName("stats_commande");
+        stats_commande->setGeometry(QRect(730, 90, 341, 201));
+        statbtnC = new QPushButton(page_2);
+        statbtnC->setObjectName("statbtnC");
+        statbtnC->setGeometry(QRect(970, 60, 93, 29));
+        lineEdit_2 = new QLineEdit(page_2);
+        lineEdit_2->setObjectName("lineEdit_2");
+        lineEdit_2->setGeometry(QRect(460, 310, 231, 31));
+        triCB = new QPushButton(page_2);
+        triCB->setObjectName("triCB");
+        triCB->setGeometry(QRect(870, 310, 93, 29));
+        triC = new QComboBox(page_2);
+        triC->addItem(QString());
+        triC->addItem(QString());
+        triC->setObjectName("triC");
+        triC->setGeometry(QRect(990, 310, 111, 26));
         stackedWidget->addWidget(page_2);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -211,7 +266,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         pushButton_5->setText(QCoreApplication::translate("MainWindow", "Gestion client", nullptr));
         pushButton_6->setText(QCoreApplication::translate("MainWindow", "Gestion commande", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "ID_CLIENT", nullptr));
@@ -223,6 +277,16 @@ public:
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "modifier", nullptr));
         pushButton_3->setText(QCoreApplication::translate("MainWindow", "supprimer", nullptr));
         pushButton_7->setText(QCoreApplication::translate("MainWindow", "retour", nullptr));
+        label_12->setText(QCoreApplication::translate("MainWindow", "Gestion des clients", nullptr));
+        statbtnC_2->setText(QCoreApplication::translate("MainWindow", "stats", nullptr));
+        SEXE->setItemText(0, QCoreApplication::translate("MainWindow", "homme", nullptr));
+        SEXE->setItemText(1, QCoreApplication::translate("MainWindow", "femme", nullptr));
+        SEXE->setItemText(2, QCoreApplication::translate("MainWindow", "autre", nullptr));
+
+        triCLB->setText(QCoreApplication::translate("MainWindow", "trier", nullptr));
+        triCL->setItemText(0, QCoreApplication::translate("MainWindow", "ASC", nullptr));
+        triCL->setItemText(1, QCoreApplication::translate("MainWindow", "DESC", nullptr));
+
         label_7->setText(QCoreApplication::translate("MainWindow", "ID_COMMANDE", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "MONTANT", nullptr));
         label_9->setText(QCoreApplication::translate("MainWindow", "STATUT", nullptr));
@@ -235,6 +299,12 @@ public:
         STATUT->setItemText(0, QCoreApplication::translate("MainWindow", "livree", nullptr));
         STATUT->setItemText(1, QCoreApplication::translate("MainWindow", "en cours", nullptr));
         STATUT->setItemText(2, QCoreApplication::translate("MainWindow", "annulee", nullptr));
+
+        label_13->setText(QCoreApplication::translate("MainWindow", "Gestion des commandes", nullptr));
+        statbtnC->setText(QCoreApplication::translate("MainWindow", "stats", nullptr));
+        triCB->setText(QCoreApplication::translate("MainWindow", "trier", nullptr));
+        triC->setItemText(0, QCoreApplication::translate("MainWindow", "ASC", nullptr));
+        triC->setItemText(1, QCoreApplication::translate("MainWindow", "DESC", nullptr));
 
     } // retranslateUi
 

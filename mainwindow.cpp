@@ -2,7 +2,15 @@
 #include "ui_mainwindow.h"
 #include "client.h"
 #include "commande.h"
+
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
 #include <QSqlQuery>
+#include <QSqlError>
+#include <QDebug>
+#include <QVBoxLayout>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -20,7 +28,7 @@ void MainWindow::on_pushButton_clicked()
     QString NOM = ui->NOM->text();
     QString PRENOM = ui->PRENOM->text();
     QString MAIL = ui->MAIL->text();
-    QString SEXE = ui->SEXE->text();
+    QString SEXE = ui->SEXE->currentText();
     client C(NOM,PRENOM,MAIL,SEXE);
     C.Ajouter();
     ui->tableView->setModel(C.afficher());
@@ -41,7 +49,7 @@ void MainWindow::on_pushButton_2_clicked()
     QString NOM = ui->NOM->text();
     QString PRENOM = ui->PRENOM->text();
     QString MAIL = ui->MAIL->text();
-    QString SEXE = ui->SEXE->text();
+    QString SEXE = ui->SEXE->currentText();
     client C(ID_CLIENT,NOM,PRENOM,MAIL,SEXE);
     C.modifier();
     ui->tableView->setModel(C.afficher());
@@ -92,7 +100,6 @@ void MainWindow::on_pushButton_14_clicked()
 void MainWindow::on_pushButton_5_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
-
 }
 
 
@@ -126,3 +133,165 @@ void MainWindow::displayCombo()
         }
     }
 }
+
+void MainWindow::on_statbtnC_clicked()
+{
+    QSqlQuery query;
+    query.prepare("SELECT statut, COUNT(*) FROM commande GROUP BY statut");
+
+    if (!query.exec()) {
+        qDebug() << "Erreur requête stats:" << query.lastError().text();
+        return;
+    }
+
+    // Créer une série
+    QPieSeries *series = new QPieSeries();
+
+    while (query.next()) {
+        QString statut = query.value(0).toString();
+        int count = query.value(1).toInt();
+        series->append(statut, count);
+    }
+
+    // Créer le graphique
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Statistiques des commandes par statut");
+    chart->legend()->setAlignment(Qt::AlignBottom);
+
+    // Créer la vue du graphique
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    // ⚡ Insérer dans le widget stats_commande
+    QVBoxLayout *layout = new QVBoxLayout(ui->stats_commande);
+    layout->addWidget(chartView);
+    ui->stats_commande->setLayout(layout);
+}
+
+
+
+void MainWindow::on_statbtnC_2_clicked()
+{
+    QSqlQuery query;
+    query.prepare("SELECT sexe, COUNT(*) FROM client GROUP BY sexe");
+
+    if (!query.exec()) {
+        qDebug() << "Erreur requête stats:" << query.lastError().text();
+        return;
+    }
+
+    // Créer une série
+    QPieSeries *series = new QPieSeries();
+    while (query.next()) {
+        QString sexe = query.value(0).toString();
+        int count = query.value(1).toInt();
+        series->append(sexe, count);
+    }
+
+    // Créer le graphique
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Statistiques des clients par sexe");
+    chart->legend()->setAlignment(Qt::AlignBottom);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    // 🔥 Supprimer l'ancien contenu du widget statsCl
+    QLayout *oldLayout = ui->statsCl->layout();
+    if (oldLayout != nullptr) {
+        QLayoutItem *item;
+        while ((item = oldLayout->takeAt(0)) != nullptr) {
+            delete item->widget();  // supprimer anciens charts
+            delete item;
+        }
+        delete oldLayout;
+    }
+
+    // Ajouter un nouveau layout avec le chart
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->addWidget(chartView);
+    ui->statsCl->setLayout(layout);
+}
+
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+
+    // Préparer la requête de recherche
+    QSqlQuery query;
+    query.prepare("SELECT id_client, nom, prenom, sexe, mail "
+                  "FROM client "
+                  "WHERE id_client LIKE :rech "
+                  "   OR nom LIKE :rech "
+                  "   OR prenom LIKE :rech");
+
+    // Ajouter les wildcards %
+    query.bindValue(":rech", "%" + arg1 + "%");
+
+    query.exec();
+    model->setQuery(query);
+
+    // Afficher dans le TableView
+    ui->tableView->setModel(model);
+}
+
+
+void MainWindow::on_lineEdit_2_textChanged(const QString &arg1)
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+
+    // Préparer la requête de recherche
+    QSqlQuery query;
+    query.prepare("SELECT id_commande,montant,statut,date_commande,id_client "
+                  "FROM commande "
+                  "WHERE id_commande LIKE :rech ");
+
+    // Ajouter les wildcards %
+    query.bindValue(":rech", "%" + arg1 + "%");
+
+    query.exec();
+    model->setQuery(query);
+
+    // Afficher dans le TableView
+    ui->tableView_2->setModel(model);
+}
+
+
+void MainWindow::on_triCLB_clicked()
+{
+    QString tri = ui->triCL->currentText(); // "ASC" ou "DESC"
+
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQuery query;
+
+    // Exemple : trier par nom
+    QString req = "SELECT id_client, nom, prenom, mail, sexe "
+                  "FROM client ORDER BY id_client " + tri;
+
+    query.prepare(req);
+    query.exec();
+    model->setQuery(query);
+
+    ui->tableView->setModel(model);
+}
+
+
+void MainWindow::on_triCB_clicked()
+{
+    QString triC = ui->triC->currentText(); // "ASC" ou "DESC"
+
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQuery query;
+
+    QString req = "SELECT id_commande, montant, statut, date_commande, id_client "
+                  "FROM commande ORDER BY id_commande " + triC;
+
+    query.prepare(req);
+    query.exec();
+    model->setQuery(query);
+
+    ui->tableView_2 ->setModel(model);
+}
+

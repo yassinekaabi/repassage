@@ -14,19 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>2</x>
-      <y>29</y>
-      <width>1161</width>
-      <height>681</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
@@ -183,16 +170,6 @@
        <string>SEXE</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="SEXE">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>330</y>
-        <width>113</width>
-        <height>26</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
@@ -244,6 +221,115 @@
       <property name="text">
        <string>retour</string>
       </property>
+     </widget>
+     <widget class="QTableView" name="statsCl">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>170</y>
+        <width>341</width>
+        <height>201</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>30</y>
+        <width>251</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Gestion des clients</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="statbtnC_2">
+      <property name="geometry">
+       <rect>
+        <x>970</x>
+        <y>140</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>stats</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="SEXE">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>340</y>
+        <width>111</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>homme</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>femme</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>autre</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>400</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="triCLB">
+      <property name="geometry">
+       <rect>
+        <x>860</x>
+        <y>400</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>trier</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="triCL">
+      <property name="geometry">
+       <rect>
+        <x>980</x>
+        <y>400</y>
+        <width>121</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>ASC</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DESC</string>
+       </property>
+      </item>
      </widget>
     </widget>
     <widget class="QWidget" name="page_2">
@@ -436,6 +522,90 @@
       <item>
        <property name="text">
         <string>annulee</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>0</y>
+        <width>301</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Gestion des commandes</string>
+      </property>
+     </widget>
+     <widget class="QTableView" name="stats_commande">
+      <property name="geometry">
+       <rect>
+        <x>730</x>
+        <y>90</y>
+        <width>341</width>
+        <height>201</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="statbtnC">
+      <property name="geometry">
+       <rect>
+        <x>970</x>
+        <y>60</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>stats</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>310</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="triCB">
+      <property name="geometry">
+       <rect>
+        <x>870</x>
+        <y>310</y>
+        <width>93</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>trier</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="triC">
+      <property name="geometry">
+       <rect>
+        <x>990</x>
+        <y>310</y>
+        <width>111</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>ASC</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DESC</string>
        </property>
       </item>
      </widget>
