@@ -10,12 +10,24 @@
 #include <QSqlError>
 #include <QDebug>
 #include <QVBoxLayout>
+#include <QPixmap>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QPixmap pix("C:/Users/htc/OneDrive/Documents/test/11878958_Online_Shoping_29.png");
+
+    // Assign the pixmap to the QLabel
+    ui->label->setPixmap(pix);
+    ui->label_15->setPixmap(pix);
+    ui->label_14->setPixmap(pix);
+    // Scale the image to fit the QLabel automatically
+
+    ui->label->setScaledContents(true);
+    ui->label_15->setScaledContents(true);
+    ui->label_14->setScaledContents(true);
 }
 
 MainWindow::~MainWindow()

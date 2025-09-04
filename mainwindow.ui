@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
-    <height>776</height>
+    <width>1151</width>
+    <height>756</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,14 +24,14 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QPushButton" name="pushButton_5">
       <property name="geometry">
        <rect>
-        <x>382</x>
-        <y>150</y>
+        <x>360</x>
+        <y>200</y>
         <width>381</width>
         <height>81</height>
        </rect>
@@ -43,8 +43,8 @@
      <widget class="QPushButton" name="pushButton_6">
       <property name="geometry">
        <rect>
-        <x>382</x>
-        <y>290</y>
+        <x>360</x>
+        <y>350</y>
         <width>381</width>
         <height>71</height>
        </rect>
@@ -53,6 +53,34 @@
        <string>Gestion commande</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>2</x>
+        <y>10</y>
+        <width>1141</width>
+        <height>681</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    background-image: url(:/images/11878958_Online_Shoping_29.png);
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>11878958_Online_Shoping_29.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <zorder>label</zorder>
+     <zorder>pushButton_5</zorder>
+     <zorder>pushButton_6</zorder>
     </widget>
     <widget class="QWidget" name="page">
      <widget class="QTableView" name="tableView">
@@ -331,6 +359,47 @@
        </property>
       </item>
      </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>2</x>
+        <y>9</y>
+        <width>1121</width>
+        <height>691</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>11878958_Online_Shoping_29.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <zorder>label_14</zorder>
+     <zorder>tableView</zorder>
+     <zorder>label_2</zorder>
+     <zorder>label_3</zorder>
+     <zorder>label_4</zorder>
+     <zorder>label_5</zorder>
+     <zorder>ID_CLIENT</zorder>
+     <zorder>NOM</zorder>
+     <zorder>PRENOM</zorder>
+     <zorder>MAIL</zorder>
+     <zorder>label_6</zorder>
+     <zorder>pushButton</zorder>
+     <zorder>pushButton_2</zorder>
+     <zorder>pushButton_3</zorder>
+     <zorder>pushButton_7</zorder>
+     <zorder>statsCl</zorder>
+     <zorder>label_12</zorder>
+     <zorder>statbtnC_2</zorder>
+     <zorder>SEXE</zorder>
+     <zorder>lineEdit</zorder>
+     <zorder>triCLB</zorder>
+     <zorder>triCL</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <widget class="QTableView" name="tableView_2">
@@ -609,6 +678,47 @@
        </property>
       </item>
      </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>2</x>
+        <y>-1</y>
+        <width>1141</width>
+        <height>701</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>11878958_Online_Shoping_29.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <zorder>label_15</zorder>
+     <zorder>tableView_2</zorder>
+     <zorder>label_7</zorder>
+     <zorder>ID_COMMANDE</zorder>
+     <zorder>MONTANT</zorder>
+     <zorder>label_8</zorder>
+     <zorder>label_9</zorder>
+     <zorder>label_10</zorder>
+     <zorder>label_11</zorder>
+     <zorder>pushButton_4</zorder>
+     <zorder>pushButton_13</zorder>
+     <zorder>pushButton_14</zorder>
+     <zorder>DATE_COMMANDE</zorder>
+     <zorder>pushButton_8</zorder>
+     <zorder>comboBox</zorder>
+     <zorder>STATUT</zorder>
+     <zorder>label_13</zorder>
+     <zorder>stats_commande</zorder>
+     <zorder>statbtnC</zorder>
+     <zorder>lineEdit_2</zorder>
+     <zorder>triCB</zorder>
+     <zorder>triC</zorder>
     </widget>
    </widget>
   </widget>
@@ -617,7 +727,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1200</width>
+     <width>1151</width>
      <height>26</height>
     </rect>
    </property>

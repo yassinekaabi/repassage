@@ -34,6 +34,7 @@ public:
     QWidget *page_3;
     QPushButton *pushButton_5;
     QPushButton *pushButton_6;
+    QLabel *label;
     QWidget *page;
     QTableView *tableView;
     QLabel *label_2;
@@ -56,6 +57,7 @@ public:
     QLineEdit *lineEdit;
     QPushButton *triCLB;
     QComboBox *triCL;
+    QLabel *label_14;
     QWidget *page_2;
     QTableView *tableView_2;
     QLabel *label_7;
@@ -78,6 +80,7 @@ public:
     QLineEdit *lineEdit_2;
     QPushButton *triCB;
     QComboBox *triC;
+    QLabel *label_15;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -85,7 +88,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1200, 776);
+        MainWindow->resize(1151, 756);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         stackedWidget = new QStackedWidget(centralwidget);
@@ -95,11 +98,23 @@ public:
         page_3->setObjectName("page_3");
         pushButton_5 = new QPushButton(page_3);
         pushButton_5->setObjectName("pushButton_5");
-        pushButton_5->setGeometry(QRect(382, 150, 381, 81));
+        pushButton_5->setGeometry(QRect(360, 200, 381, 81));
         pushButton_6 = new QPushButton(page_3);
         pushButton_6->setObjectName("pushButton_6");
-        pushButton_6->setGeometry(QRect(382, 290, 381, 71));
+        pushButton_6->setGeometry(QRect(360, 350, 381, 71));
+        label = new QLabel(page_3);
+        label->setObjectName("label");
+        label->setGeometry(QRect(2, 10, 1141, 681));
+        label->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"    background-image: url(:/images/11878958_Online_Shoping_29.png);\n"
+"}\n"
+""));
+        label->setPixmap(QPixmap(QString::fromUtf8("11878958_Online_Shoping_29.png")));
+        label->setScaledContents(true);
         stackedWidget->addWidget(page_3);
+        label->raise();
+        pushButton_5->raise();
+        pushButton_6->raise();
         page = new QWidget();
         page->setObjectName("page");
         tableView = new QTableView(page);
@@ -173,7 +188,34 @@ public:
         triCL->addItem(QString());
         triCL->setObjectName("triCL");
         triCL->setGeometry(QRect(980, 400, 121, 26));
+        label_14 = new QLabel(page);
+        label_14->setObjectName("label_14");
+        label_14->setGeometry(QRect(2, 9, 1121, 691));
+        label_14->setPixmap(QPixmap(QString::fromUtf8("11878958_Online_Shoping_29.png")));
+        label_14->setScaledContents(true);
         stackedWidget->addWidget(page);
+        label_14->raise();
+        tableView->raise();
+        label_2->raise();
+        label_3->raise();
+        label_4->raise();
+        label_5->raise();
+        ID_CLIENT->raise();
+        NOM->raise();
+        PRENOM->raise();
+        MAIL->raise();
+        label_6->raise();
+        pushButton->raise();
+        pushButton_2->raise();
+        pushButton_3->raise();
+        pushButton_7->raise();
+        statsCl->raise();
+        label_12->raise();
+        statbtnC_2->raise();
+        SEXE->raise();
+        lineEdit->raise();
+        triCLB->raise();
+        triCL->raise();
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
         tableView_2 = new QTableView(page_2);
@@ -245,11 +287,38 @@ public:
         triC->addItem(QString());
         triC->setObjectName("triC");
         triC->setGeometry(QRect(990, 310, 111, 26));
+        label_15 = new QLabel(page_2);
+        label_15->setObjectName("label_15");
+        label_15->setGeometry(QRect(2, -1, 1141, 701));
+        label_15->setPixmap(QPixmap(QString::fromUtf8("11878958_Online_Shoping_29.png")));
+        label_15->setScaledContents(true);
         stackedWidget->addWidget(page_2);
+        label_15->raise();
+        tableView_2->raise();
+        label_7->raise();
+        ID_COMMANDE->raise();
+        MONTANT->raise();
+        label_8->raise();
+        label_9->raise();
+        label_10->raise();
+        label_11->raise();
+        pushButton_4->raise();
+        pushButton_13->raise();
+        pushButton_14->raise();
+        DATE_COMMANDE->raise();
+        pushButton_8->raise();
+        comboBox->raise();
+        STATUT->raise();
+        label_13->raise();
+        stats_commande->raise();
+        statbtnC->raise();
+        lineEdit_2->raise();
+        triCB->raise();
+        triC->raise();
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1200, 26));
+        menubar->setGeometry(QRect(0, 0, 1151, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -257,7 +326,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -268,6 +337,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         pushButton_5->setText(QCoreApplication::translate("MainWindow", "Gestion client", nullptr));
         pushButton_6->setText(QCoreApplication::translate("MainWindow", "Gestion commande", nullptr));
+        label->setText(QString());
         label_2->setText(QCoreApplication::translate("MainWindow", "ID_CLIENT", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "NOM", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "PRENOM", nullptr));
@@ -287,6 +357,7 @@ public:
         triCL->setItemText(0, QCoreApplication::translate("MainWindow", "ASC", nullptr));
         triCL->setItemText(1, QCoreApplication::translate("MainWindow", "DESC", nullptr));
 
+        label_14->setText(QString());
         label_7->setText(QCoreApplication::translate("MainWindow", "ID_COMMANDE", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "MONTANT", nullptr));
         label_9->setText(QCoreApplication::translate("MainWindow", "STATUT", nullptr));
@@ -306,6 +377,7 @@ public:
         triC->setItemText(0, QCoreApplication::translate("MainWindow", "ASC", nullptr));
         triC->setItemText(1, QCoreApplication::translate("MainWindow", "DESC", nullptr));
 
+        label_15->setText(QString());
     } // retranslateUi
 
 };
